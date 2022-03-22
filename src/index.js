@@ -8,22 +8,22 @@ const showTasks = document.getElementById('show-tasks');
 
 if (localStorage.getItem('tasks') == null) {
   setTaskIntoLocalStorage([{
-    index: 3,
-    completed: false,
-    description: 'Complete JavaScript tutorial',
-  },
-  {
-    index: 1,
-    completed: true,
-    description: 'Prepare Breakfast',
+      index: 3,
+      completed: false,
+      description: 'Complete JavaScript tutorial',
+    },
+    {
+      index: 1,
+      completed: true,
+      description: 'Prepare Breakfast',
 
-  },
-  {
-    index: 2,
-    completed: true,
-    description: 'Transfer UTI Payment',
+    },
+    {
+      index: 2,
+      completed: true,
+      description: 'Transfer UTI Payment',
 
-  },
+    },
   ]);
 }
 
@@ -62,7 +62,7 @@ const refreshTaskList = () => {
 newTask.addEventListener('keyup', (e) => {
   e.stopImmediatePropagation();
   if (e.keyCode === 13) {
-    console.log('Enter Pressed');
+
     addTask(e.target.value);
     e.target.value = '';
     refreshTaskList();
