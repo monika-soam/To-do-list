@@ -60,7 +60,9 @@ const refreshTaskList = () => {
 };
 
 newTask.addEventListener('keyup', (e) => {
+  e.stopImmediatePropagation();
   if (e.keyCode === 13) {
+    console.log('Enter Pressed');
     addTask(e.target.value);
     e.target.value = '';
     refreshTaskList();

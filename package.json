@@ -2,11 +2,11 @@
   "name": "to-do-list",
   "version": "1.0.0",
   "description": "To do list is a basic website, On page load render the dynamically created list of tasks in the dedicated placeholder. The list should appear in order of the index values for each task.",
-  "main": "src/index.js",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --watch --mode development",
-    "dev": "webpack-dev-server --mode=development"
+    "build": "webpack",
+    "start": "webpack-dev-server --mode=development"
   },
   "repository": {
     "type": "git",
@@ -26,6 +26,7 @@
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.25.4",
     "hint": "^6.1.10",
+    "html-webpack-plugin": "^5.5.0",
     "sass-loader": "^12.6.0",
     "scss-loader": "^0.0.1",
     "style-loader": "^3.3.1",
