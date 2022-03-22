@@ -15,7 +15,7 @@ To do list is a basic website, On page load render the dynamically created list 
 
 
 ## ScreenShot Demo
-![AddBook Page](/images/homePage.png)
+![AddBook Page](./images/homePage.png)
 
 
 Getting Started
