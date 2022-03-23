@@ -1,7 +1,7 @@
 ## To-do-list ![To-do-list](https://img.shields.io/badge/Microverse-blueviolet)
 
 
-To do list is a basic website, On page load render the dynamically created list of tasks in the dedicated placeholder. The list should appear in order of the index values for each task.
+To do list is a basic website, On page load render the dynamically created list of tasks in the dedicated placeholder. The list should appear in order of the index values for each task also implemented the CRUD (create, update, delete) methods.
 
 
 ## Built With
@@ -16,6 +16,9 @@ To do list is a basic website, On page load render the dynamically created list 
 
 ## ScreenShot Demo
 ![AddBook Page](./images/homePage.png)
+
+## Live Demo 
+[Live Demo](https://monika-soam.github.io/To-do-list/dist/)
 
 
 Getting Started
