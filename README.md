@@ -17,6 +17,9 @@ To do list is a basic website, On page load render the dynamically created list 
 ## ScreenShot Demo
 ![AddBook Page](./images/homePage.png)
 
+## Live Demo 
+[Live Demo](https://monika-soam.github.io/To-do-list/dist/)
+
 
 Getting Started
 To get the content of this project locally you need to run this command in your terminal:
