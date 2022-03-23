@@ -1,5 +1,5 @@
 const getTaskFromLocalStorage = () => {
-  if (JSON.parse(localStorage.getItem('tasks')) == null) {
+  if (JSON.parse(localStorage.getItem('tasks')) === null || localStorage.getItem('tasks') === '[]') {
     return [];
   }
   return JSON.parse(localStorage.getItem('tasks'));

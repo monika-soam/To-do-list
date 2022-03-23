@@ -4,31 +4,14 @@ import getTasks from '../modules/displayTasks.js';
 import removeTask from '../modules/removeTask.js';
 import updateTask from '../modules/updateTask.js';
 import completedTask from '../modules/completedTasks.js';
+import updateCheckbox from '../modules/updateCheckbox.js';
 import { setTaskIntoLocalStorage } from '../modules/localStorage.js';
 
 const newTask = document.getElementById('add-task');
 const showTasks = document.getElementById('show-tasks');
 const completedTaskButton = document.getElementById('completed-task');
-
 if (localStorage.getItem('tasks') === null || localStorage.getItem('tasks') === '[]') {
-  setTaskIntoLocalStorage([{
-    index: 3,
-    completed: false,
-    description: 'Complete JavaScript tutorial',
-  },
-  {
-    index: 1,
-    completed: true,
-    description: 'Prepare Breakfast',
-
-  },
-  {
-    index: 2,
-    completed: true,
-    description: 'Transfer UTI Payment',
-
-  },
-  ]);
+  setTaskIntoLocalStorage([]);
 }
 
 const checkboxClickHandler = (e) => {
@@ -37,6 +20,7 @@ const checkboxClickHandler = (e) => {
   } else {
     e.target.parentNode.children[1].classList.remove('strike');
   }
+  updateCheckbox(e);
 };
 const optionClickHandler = (e) => {
   const input = e.target.parentNode.children[1];
@@ -94,7 +78,9 @@ const refreshTaskList = () => {
     optionIcon[i].addEventListener('click', (e) => {
       optionClickHandler(e);
     });
+
     trashIcon[i].addEventListener('click', (e) => {
+      /* eslint-disable-next-line no-use-before-define */
       removeTaskHandler(e);
     });
     inputElem[i].addEventListener('click', (e) => {

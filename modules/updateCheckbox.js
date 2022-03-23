@@ -1,14 +1,13 @@
 import { getTaskFromLocalStorage, setTaskIntoLocalStorage } from './localStorage.js';
 
-const completedTask = () => {
+const updateCheckbox = (e) => {
+  const id = parseInt(e.target.parentNode.children[1].id, 10);
+
   const tasks = getTaskFromLocalStorage();
   for (let i = 0; i < tasks.length; i += 1) {
-    if (tasks[i].completed === true) {
-      tasks.splice(i, 1);
-      i = 0;
-    }
+    if (tasks[i].index === id) { tasks[i].completed = e.target.checked; }
   }
   setTaskIntoLocalStorage(tasks);
 };
 
-export default completedTask;
+export default updateCheckbox;
