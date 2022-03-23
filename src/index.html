@@ -26,11 +26,17 @@
       <div><input type="text" placeholder="Add to your list..." id="add-task"><i class="fa-solid fa-arrow-turn-down-left"></i></div>
       <hr>
       <div id="show-tasks">
+        <!-- `
+        <div class="task-list">
+          <input type="checkbox" class="checkbox" ${str}><input type="text" class="task ${strike}" id="${sortedTasks[i].index}" value="${sortedTasks[i].description}"><i class="fa fa-ellipsis-v" aria-hidden="true"></i><i class="fa fa-trash icon-display"
+            aria-hidden="true"></i>
 
-        <hr>
+        </div>
+        <hr>` -->
+
       </div>
     </div>
-    <div class="footer btn-secondary"><input type="button" value="Clear all completed"></div>
+    <div class="footer btn-secondary"><input type="button" value="Clear all completed" id="completed-task"></div>
 
   </div>
 
