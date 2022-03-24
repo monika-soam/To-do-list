@@ -71,7 +71,7 @@ const refreshTaskList = () => {
   const trashIcon = document.getElementsByClassName('fa-trash');
   const inputElem = document.getElementsByClassName('task');
   for (let i = 0; i < checkboxes.length; i += 1) {
-    checkboxes[i].addEventListener('click', (e) => {
+    checkboxes[i].addEventListener('change', (e) => {
       checkboxClickHandler(e);
       optionClickHandler(e);
     });
@@ -106,7 +106,8 @@ newTask.addEventListener('keyup', (e) => {
   }
 });
 
-completedTaskButton.addEventListener('click', () => {
+completedTaskButton.addEventListener('click', (e) => {
+  e.stopImmediatePropagation();
   completedTask();
   refreshTaskList();
 });
