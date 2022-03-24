@@ -1,7 +1,7 @@
 ## To-do-list ![To-do-list](https://img.shields.io/badge/Microverse-blueviolet)
 
 
-To do list is a basic website, On page load render the dynamically created list of tasks in the dedicated placeholder. The list should appear in order of the index values for each task also implemented the CRUD (create, update, delete) methods.
+To do list is a task mangement webapp, On page load render the dynamically created list of tasks in the dedicated placeholder. The list should appear in order of the index values for each task also implemented the CRUD (create, update, delete) methods.The user will also be able to mark task completion clicking on checkbox and undo it.
 
 
 ## Built With
@@ -10,8 +10,6 @@ To do list is a basic website, On page load render the dynamically created list 
 - linters
 - JavaScript
 - webpack to bundle JavaScript.
-
-
 
 
 ## ScreenShot Demo
@@ -45,7 +43,6 @@ And For tracking the linter errors in JavaScript file run:
 
  
 
-
 👤 **Monika**
 
 - GitHub: [GitHub](https://github.com/monika-soam)
@@ -59,7 +56,7 @@ And For tracking the linter errors in JavaScript file run:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/monika-soam/My-Awesome-books/issues).
+Feel free to check the [issues page](https://github.com/monika-soam/To-do-list/issues).
 
 ## Show your support
 
