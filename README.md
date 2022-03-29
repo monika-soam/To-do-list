@@ -27,21 +27,62 @@ Test For tracking linter errors locally you need to follow these steps:
 
 After cloning the project you need to run this command
 
-`npm install` This command will download all the dependancies of the project
 
-For tracking the linter errors in HTML file run:
 
-`npx hint .`
+## Getting started with Webpack
 
-For tracking the linter errors in CSS file run:
+```
+npm install webpack webpack-cli --save-dev
+```
 
-`npx stylelint "\*_/_.{css,scss}"`
+## Getting packages and debuging with Stylelint
 
-And For tracking the linter errors in JavaScript file run:
+```
+npm install --save-dev stylelint@13.x stylelint-scss@3.x stylelint-config-standard@21.x stylelint-csstree-validator@1.x
+```
 
-`npx eslint .`
+##### For validation detection using Stylelint Run
 
- 
+```
+npx stylelint "**/*.{css,scss}"
+```
+
+##### from parent source directory
+
+## Getting packages and debuging with ESlint
+
+```
+npm install npm install --save-dev eslint@7.x eslint-config-airbnb-base@14.x eslint-plugin-import@2.x babel-eslint@10.x
+```
+
+##### For validation detection using Stylelint Run
+
+```
+npx eslint .
+```
+
+##### from parent source directory
+
+## Getting packages and debuging with Webhint
+
+```
+npm init -y
+npm install --save-dev hint@6.x
+```
+
+##### For validation detection using Webhint, Run
+
+```
+npx hint .
+```
+
+##### To Compile and See a live Version,  Run
+```
+npm run build 
+```
+```
+npm start
+```
 
 👤 **Monika**
 
