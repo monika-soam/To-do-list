@@ -10,76 +10,6 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./modules/addTask.js":
-/*!****************************!*\
-  !*** ./modules/addTask.js ***!
-  \****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _localStorage_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./localStorage.js */ \"./modules/localStorage.js\");\n\n\nconst addTask = (text) => {\n  let tasks = (0,_localStorage_js__WEBPACK_IMPORTED_MODULE_0__.getTaskFromLocalStorage)();\n  tasks = tasks.sort((v1, v2) => v1.index - v2.index);\n  let index;\n  if (tasks.length === 0) index = 1;\n  else index = tasks[tasks.length - 1].index + 1;\n  const obj = { index, description: text, completed: false };\n  tasks.push(obj);\n  (0,_localStorage_js__WEBPACK_IMPORTED_MODULE_0__.setTaskIntoLocalStorage)(tasks);\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (addTask);\n\n//# sourceURL=webpack://to-do-list/./modules/addTask.js?");
-
-/***/ }),
-
-/***/ "./modules/completedTasks.js":
-/*!***********************************!*\
-  !*** ./modules/completedTasks.js ***!
-  \***********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _localStorage_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./localStorage.js */ \"./modules/localStorage.js\");\n\n\nlet globalTasks;\nconst completedTask = () => {\n  globalTasks = (0,_localStorage_js__WEBPACK_IMPORTED_MODULE_0__.getTaskFromLocalStorage)();\n  const completedTasks = globalTasks.filter((t) => t.completed);\n  const splicedIndex = (f) => {\n    globalTasks.splice(globalTasks.findIndex((e) => e.index === f.index), 1);\n  };\n  completedTasks.forEach(splicedIndex);\n\n  (0,_localStorage_js__WEBPACK_IMPORTED_MODULE_0__.setTaskIntoLocalStorage)(globalTasks);\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (completedTask);\n\n//# sourceURL=webpack://to-do-list/./modules/completedTasks.js?");
-
-/***/ }),
-
-/***/ "./modules/displayTasks.js":
-/*!*********************************!*\
-  !*** ./modules/displayTasks.js ***!
-  \*********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _localStorage_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./localStorage.js */ \"./modules/localStorage.js\");\n\n\nconst getTasks = () => {\n  const tasks = (0,_localStorage_js__WEBPACK_IMPORTED_MODULE_0__.getTaskFromLocalStorage)();\n  const sortedTasks = tasks.sort((v1, v2) => v1.index - v2.index);\n  return sortedTasks;\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getTasks);\n\n//# sourceURL=webpack://to-do-list/./modules/displayTasks.js?");
-
-/***/ }),
-
-/***/ "./modules/localStorage.js":
-/*!*********************************!*\
-  !*** ./modules/localStorage.js ***!
-  \*********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"getTaskFromLocalStorage\": () => (/* binding */ getTaskFromLocalStorage),\n/* harmony export */   \"setTaskIntoLocalStorage\": () => (/* binding */ setTaskIntoLocalStorage)\n/* harmony export */ });\nconst getTaskFromLocalStorage = () => {\n  if (JSON.parse(localStorage.getItem('tasks')) === null || localStorage.getItem('tasks') === '[]') {\n    return [];\n  }\n  return JSON.parse(localStorage.getItem('tasks'));\n};\n\nconst setTaskIntoLocalStorage = (tasks) => {\n  localStorage.setItem('tasks', JSON.stringify(tasks));\n};\n\n\n\n//# sourceURL=webpack://to-do-list/./modules/localStorage.js?");
-
-/***/ }),
-
-/***/ "./modules/removeTask.js":
-/*!*******************************!*\
-  !*** ./modules/removeTask.js ***!
-  \*******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _localStorage_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./localStorage.js */ \"./modules/localStorage.js\");\n\n\nconst removeTask = (e) => {\n  const tasks = (0,_localStorage_js__WEBPACK_IMPORTED_MODULE_0__.getTaskFromLocalStorage)();\n  const selectedID = parseInt(e.id, 10);\n\n  for (let i = 0; i < tasks.length; i += 1) {\n    if (tasks[i].index === selectedID) {\n      tasks.splice(i, 1);\n      break;\n    }\n  }\n  (0,_localStorage_js__WEBPACK_IMPORTED_MODULE_0__.setTaskIntoLocalStorage)(tasks);\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (removeTask);\n\n//# sourceURL=webpack://to-do-list/./modules/removeTask.js?");
-
-/***/ }),
-
-/***/ "./modules/updateCheckbox.js":
-/*!***********************************!*\
-  !*** ./modules/updateCheckbox.js ***!
-  \***********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _localStorage_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./localStorage.js */ \"./modules/localStorage.js\");\n\n\nconst updateCheckbox = (e) => {\n  const id = parseInt(e.target.parentNode.children[1].id, 10);\n\n  const tasks = (0,_localStorage_js__WEBPACK_IMPORTED_MODULE_0__.getTaskFromLocalStorage)();\n  for (let i = 0; i < tasks.length; i += 1) {\n    if (tasks[i].index === id) { tasks[i].completed = e.target.checked; }\n  }\n  (0,_localStorage_js__WEBPACK_IMPORTED_MODULE_0__.setTaskIntoLocalStorage)(tasks);\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (updateCheckbox);\n\n//# sourceURL=webpack://to-do-list/./modules/updateCheckbox.js?");
-
-/***/ }),
-
-/***/ "./modules/updateTask.js":
-/*!*******************************!*\
-  !*** ./modules/updateTask.js ***!
-  \*******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _localStorage_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./localStorage.js */ \"./modules/localStorage.js\");\n\n\nconst updateTask = (e) => {\n  const tasks = (0,_localStorage_js__WEBPACK_IMPORTED_MODULE_0__.getTaskFromLocalStorage)();\n  const selectedID = parseInt(e.id, 10);\n\n  for (let i = 0; i < tasks.length; i += 1) {\n    if (tasks[i].index === selectedID) {\n      tasks[i].description = e.value;\n      break;\n    }\n  }\n  (0,_localStorage_js__WEBPACK_IMPORTED_MODULE_0__.setTaskIntoLocalStorage)(tasks);\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (updateTask);\n\n//# sourceURL=webpack://to-do-list/./modules/updateTask.js?");
-
-/***/ }),
-
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/style.css":
 /*!*************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/style.css ***!
@@ -186,7 +116,77 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _modules_addTask_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../modules/addTask.js */ \"./modules/addTask.js\");\n/* harmony import */ var _modules_displayTasks_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../modules/displayTasks.js */ \"./modules/displayTasks.js\");\n/* harmony import */ var _modules_removeTask_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../modules/removeTask.js */ \"./modules/removeTask.js\");\n/* harmony import */ var _modules_updateTask_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../modules/updateTask.js */ \"./modules/updateTask.js\");\n/* harmony import */ var _modules_completedTasks_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../modules/completedTasks.js */ \"./modules/completedTasks.js\");\n/* harmony import */ var _modules_updateCheckbox_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../modules/updateCheckbox.js */ \"./modules/updateCheckbox.js\");\n/* harmony import */ var _modules_localStorage_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../modules/localStorage.js */ \"./modules/localStorage.js\");\n\n\n\n\n\n\n\n\n\nconst newTask = document.getElementById('add-task');\nconst showTasks = document.getElementById('show-tasks');\nconst completedTaskButton = document.getElementById('completed-task');\nif (localStorage.getItem('tasks') === null || localStorage.getItem('tasks') === '[]') {\n  (0,_modules_localStorage_js__WEBPACK_IMPORTED_MODULE_7__.setTaskIntoLocalStorage)([]);\n}\n\nconst checkboxClickHandler = (e) => {\n  if (e.target.checked === true) {\n    e.target.parentNode.children[1].classList.add('strike');\n  } else {\n    e.target.parentNode.children[1].classList.remove('strike');\n  }\n  (0,_modules_updateCheckbox_js__WEBPACK_IMPORTED_MODULE_6__[\"default\"])(e);\n};\nconst optionClickHandler = (e) => {\n  const input = e.target.parentNode.children[1];\n  const ellipsis = e.target.parentNode.children[2];\n  const trash = e.target.parentNode.children[3];\n\n  if (e.target.className.indexOf('visible') > -1) {\n    trash.classList.remove('invisible');\n\n    e.target.parentNode.style.backgroundColor = '#ffffe0';\n    input.style.backgroundColor = '#ffffe0';\n    e.target.classList.add('invisible');\n  } else if (e.target.className.indexOf('task') > -1) {\n    ellipsis.classList.remove('invisible');\n    trash.classList.add('invisible');\n    e.target.parentNode.style.backgroundColor = '';\n    input.style.backgroundColor = '';\n  } else if (e.target.checked === true) {\n    ellipsis.classList.remove('invisible');\n    trash.classList.add('invisible');\n    e.target.parentNode.style.backgroundColor = '';\n    input.style.backgroundColor = '';\n  }\n};\n\nconst updateTaskHandler = (e) => {\n  (0,_modules_updateTask_js__WEBPACK_IMPORTED_MODULE_4__[\"default\"])(e.target);\n};\nconst refreshTaskList = () => {\n  const sortedTasks = (0,_modules_displayTasks_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])();\n  showTasks.innerHTML = '';\n  for (let i = 0; i < sortedTasks.length; i += 1) {\n    let str = '';\n    let strike = '';\n    if (sortedTasks[i].completed === true) {\n      str = 'checked';\n      strike = 'strike';\n    }\n    showTasks.innerHTML += `<div class=\"task-list\">\n          <input type=\"checkbox\" class=\"checkbox\" ${str} ><input type=\"text\" class=\"task ${strike}\" id=\"${sortedTasks[i].index}\" value=\"${sortedTasks[i].description}\" ><i class=\"fa fa-ellipsis-v visible\" ></i><i class=\"fa fa-trash invisible\"></i>\n\n        </div>\n        <hr>`;\n  }\n\n  const checkboxes = document.querySelectorAll('.checkbox');\n  const optionIcon = document.getElementsByClassName('fa-ellipsis-v');\n  const trashIcon = document.getElementsByClassName('fa-trash');\n  const inputElem = document.getElementsByClassName('task');\n  for (let i = 0; i < checkboxes.length; i += 1) {\n    checkboxes[i].addEventListener('change', (e) => {\n      checkboxClickHandler(e);\n      optionClickHandler(e);\n    });\n    optionIcon[i].addEventListener('click', (e) => {\n      optionClickHandler(e);\n    });\n\n    trashIcon[i].addEventListener('click', (e) => {\n      /* eslint-disable-next-line no-use-before-define */\n      removeTaskHandler(e);\n    });\n    inputElem[i].addEventListener('click', (e) => {\n      optionClickHandler(e);\n    });\n    inputElem[i].addEventListener('blur', (e) => {\n      updateTaskHandler(e);\n    });\n  }\n};\nconst removeTaskHandler = (e) => {\n  const trashIcon = e.target;\n  (0,_modules_removeTask_js__WEBPACK_IMPORTED_MODULE_3__[\"default\"])(trashIcon.parentNode.children[1]);\n  refreshTaskList();\n};\n\nnewTask.addEventListener('keyup', (e) => {\n  e.stopImmediatePropagation();\n  if (e.keyCode === 13) {\n    (0,_modules_addTask_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(e.target.value);\n    e.target.value = '';\n    refreshTaskList();\n  }\n});\n\ncompletedTaskButton.addEventListener('click', (e) => {\n  e.stopImmediatePropagation();\n  (0,_modules_completedTasks_js__WEBPACK_IMPORTED_MODULE_5__[\"default\"])();\n  refreshTaskList();\n});\n\nwindow.onload = () => {\n  refreshTaskList();\n};\n\n//# sourceURL=webpack://to-do-list/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _modules_addTask_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/addTask.js */ \"./src/modules/addTask.js\");\n/* harmony import */ var _modules_displayTasks_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/displayTasks.js */ \"./src/modules/displayTasks.js\");\n/* harmony import */ var _modules_removeTask_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/removeTask.js */ \"./src/modules/removeTask.js\");\n/* harmony import */ var _modules_updateTask_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/updateTask.js */ \"./src/modules/updateTask.js\");\n/* harmony import */ var _modules_completedTasks_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/completedTasks.js */ \"./src/modules/completedTasks.js\");\n/* harmony import */ var _modules_updateCheckbox_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/updateCheckbox.js */ \"./src/modules/updateCheckbox.js\");\n/* harmony import */ var _modules_localStorage_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/localStorage.js */ \"./src/modules/localStorage.js\");\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nconst newTask = document.getElementById('add-task');\r\nconst showTasks = document.getElementById('show-tasks');\r\nconst completedTaskButton = document.getElementById('completed-task');\r\nif (localStorage.getItem('tasks') === null || localStorage.getItem('tasks') === '[]') {\r\n  (0,_modules_localStorage_js__WEBPACK_IMPORTED_MODULE_7__.setTaskIntoLocalStorage)([]);\r\n}\r\n\r\nconst checkboxClickHandler = (e) => {\r\n  if (e.target.checked === true) {\r\n    e.target.parentNode.children[1].classList.add('strike');\r\n  } else {\r\n    e.target.parentNode.children[1].classList.remove('strike');\r\n  }\r\n  (0,_modules_updateCheckbox_js__WEBPACK_IMPORTED_MODULE_6__[\"default\"])(e);\r\n};\r\nconst optionClickHandler = (e) => {\r\n  const input = e.target.parentNode.children[1];\r\n  const ellipsis = e.target.parentNode.children[2];\r\n  const trash = e.target.parentNode.children[3];\r\n\r\n  if (e.target.className.indexOf('visible') > -1) {\r\n    trash.classList.remove('invisible');\r\n\r\n    e.target.parentNode.style.backgroundColor = '#ffffe0';\r\n    input.style.backgroundColor = '#ffffe0';\r\n    e.target.classList.add('invisible');\r\n  } else if (e.target.className.indexOf('task') > -1) {\r\n    ellipsis.classList.remove('invisible');\r\n    trash.classList.add('invisible');\r\n    e.target.parentNode.style.backgroundColor = '';\r\n    input.style.backgroundColor = '';\r\n  } else if (e.target.checked === true) {\r\n    ellipsis.classList.remove('invisible');\r\n    trash.classList.add('invisible');\r\n    e.target.parentNode.style.backgroundColor = '';\r\n    input.style.backgroundColor = '';\r\n  }\r\n};\r\n\r\nconst updateTaskHandler = (e) => {\r\n  (0,_modules_updateTask_js__WEBPACK_IMPORTED_MODULE_4__[\"default\"])(e.target);\r\n};\r\nconst refreshTaskList = () => {\r\n  const sortedTasks = (0,_modules_displayTasks_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])();\r\n  showTasks.innerHTML = '';\r\n  for (let i = 0; i < sortedTasks.length; i += 1) {\r\n    let str = '';\r\n    let strike = '';\r\n    if (sortedTasks[i].completed === true) {\r\n      str = 'checked';\r\n      strike = 'strike';\r\n    }\r\n    showTasks.innerHTML += `<div class=\"task-list\">\r\n          <input type=\"checkbox\" class=\"checkbox\" ${str} ><input type=\"text\" class=\"task ${strike}\" id=\"${sortedTasks[i].index}\" value=\"${sortedTasks[i].description}\" ><i class=\"fa fa-ellipsis-v visible\" ></i><i class=\"fa fa-trash invisible\"></i>\r\n\r\n        </div>\r\n        <hr>`;\r\n  }\r\n\r\n  const checkboxes = document.querySelectorAll('.checkbox');\r\n  const optionIcon = document.getElementsByClassName('fa-ellipsis-v');\r\n  const trashIcon = document.getElementsByClassName('fa-trash');\r\n  const inputElem = document.getElementsByClassName('task');\r\n  for (let i = 0; i < checkboxes.length; i += 1) {\r\n    checkboxes[i].addEventListener('change', (e) => {\r\n      checkboxClickHandler(e);\r\n      optionClickHandler(e);\r\n    });\r\n    optionIcon[i].addEventListener('click', (e) => {\r\n      optionClickHandler(e);\r\n    });\r\n\r\n    trashIcon[i].addEventListener('click', (e) => {\r\n      /* eslint-disable-next-line no-use-before-define */\r\n      removeTaskHandler(e);\r\n    });\r\n    inputElem[i].addEventListener('click', (e) => {\r\n      optionClickHandler(e);\r\n    });\r\n    inputElem[i].addEventListener('blur', (e) => {\r\n      updateTaskHandler(e);\r\n    });\r\n  }\r\n};\r\nconst removeTaskHandler = (e) => {\r\n  const trashIcon = e.target;\r\n  (0,_modules_removeTask_js__WEBPACK_IMPORTED_MODULE_3__[\"default\"])(trashIcon.parentNode.children[1]);\r\n  refreshTaskList();\r\n};\r\n\r\nnewTask.addEventListener('keyup', (e) => {\r\n  e.stopImmediatePropagation();\r\n  if (e.keyCode === 13) {\r\n    (0,_modules_addTask_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(e.target.value);\r\n    e.target.value = '';\r\n    refreshTaskList();\r\n  }\r\n});\r\n\r\ncompletedTaskButton.addEventListener('click', (e) => {\r\n  e.stopImmediatePropagation();\r\n  (0,_modules_completedTasks_js__WEBPACK_IMPORTED_MODULE_5__[\"default\"])();\r\n  refreshTaskList();\r\n});\r\n\r\nwindow.onload = () => {\r\n  refreshTaskList();\r\n};\n\n//# sourceURL=webpack://to-do-list/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/modules/addTask.js":
+/*!********************************!*\
+  !*** ./src/modules/addTask.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _localStorage_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./localStorage.js */ \"./src/modules/localStorage.js\");\n\r\n\r\nconst addTask = (text) => {\r\n  let tasks = (0,_localStorage_js__WEBPACK_IMPORTED_MODULE_0__.getTaskFromLocalStorage)();\r\n  tasks = tasks.sort((v1, v2) => v1.index - v2.index);\r\n  let index;\r\n  if (tasks.length === 0) index = 1;\r\n  else index = tasks[tasks.length - 1].index + 1;\r\n  const obj = { index, description: text, completed: false };\r\n  tasks.push(obj);\r\n  (0,_localStorage_js__WEBPACK_IMPORTED_MODULE_0__.setTaskIntoLocalStorage)(tasks);\r\n};\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (addTask);\n\n//# sourceURL=webpack://to-do-list/./src/modules/addTask.js?");
+
+/***/ }),
+
+/***/ "./src/modules/completedTasks.js":
+/*!***************************************!*\
+  !*** ./src/modules/completedTasks.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _localStorage_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./localStorage.js */ \"./src/modules/localStorage.js\");\n\r\n\r\n\r\nconst completedTask = () => {\r\n  let globalTasks;\r\n  globalTasks = (0,_localStorage_js__WEBPACK_IMPORTED_MODULE_0__.getTaskFromLocalStorage)();\r\n  const completedTasks = globalTasks.filter((t) => t.completed);\r\n  const splicedIndex = (f) => {\r\n    globalTasks.splice(globalTasks.findIndex((e) => e.index === f.index), 1);\r\n  };\r\n  completedTasks.forEach(splicedIndex);\r\n\r\n  (0,_localStorage_js__WEBPACK_IMPORTED_MODULE_0__.setTaskIntoLocalStorage)(globalTasks);\r\n};\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (completedTask);\n\n//# sourceURL=webpack://to-do-list/./src/modules/completedTasks.js?");
+
+/***/ }),
+
+/***/ "./src/modules/displayTasks.js":
+/*!*************************************!*\
+  !*** ./src/modules/displayTasks.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _localStorage_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./localStorage.js */ \"./src/modules/localStorage.js\");\n\r\n\r\nconst getTasks = () => {\r\n  const tasks = (0,_localStorage_js__WEBPACK_IMPORTED_MODULE_0__.getTaskFromLocalStorage)();\r\n  const sortedTasks = tasks.sort((v1, v2) => v1.index - v2.index);\r\n  return sortedTasks;\r\n};\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getTasks);\n\n//# sourceURL=webpack://to-do-list/./src/modules/displayTasks.js?");
+
+/***/ }),
+
+/***/ "./src/modules/localStorage.js":
+/*!*************************************!*\
+  !*** ./src/modules/localStorage.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"getTaskFromLocalStorage\": () => (/* binding */ getTaskFromLocalStorage),\n/* harmony export */   \"setTaskIntoLocalStorage\": () => (/* binding */ setTaskIntoLocalStorage)\n/* harmony export */ });\nconst getTaskFromLocalStorage = () => {\r\n  if (JSON.parse(localStorage.getItem('tasks')) === null || localStorage.getItem('tasks') === '[]') {\r\n    return [];\r\n  }\r\n  return JSON.parse(localStorage.getItem('tasks'));\r\n};\r\n\r\nconst setTaskIntoLocalStorage = (tasks) => {\r\n  localStorage.setItem('tasks', JSON.stringify(tasks));\r\n};\r\n\r\n\n\n//# sourceURL=webpack://to-do-list/./src/modules/localStorage.js?");
+
+/***/ }),
+
+/***/ "./src/modules/removeTask.js":
+/*!***********************************!*\
+  !*** ./src/modules/removeTask.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _localStorage_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./localStorage.js */ \"./src/modules/localStorage.js\");\n\r\n\r\nconst removeTask = (e) => {\r\n  const tasks = (0,_localStorage_js__WEBPACK_IMPORTED_MODULE_0__.getTaskFromLocalStorage)();\r\n  const selectedID = parseInt(e.id, 10);\r\n  for (let i = 0; i < tasks.length; i += 1) {\r\n    if (tasks[i].index === selectedID) {\r\n      tasks.splice(i, 1);\r\n      break;\r\n    }\r\n  }\r\n  (0,_localStorage_js__WEBPACK_IMPORTED_MODULE_0__.setTaskIntoLocalStorage)(tasks);\r\n};\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (removeTask);\n\n//# sourceURL=webpack://to-do-list/./src/modules/removeTask.js?");
+
+/***/ }),
+
+/***/ "./src/modules/updateCheckbox.js":
+/*!***************************************!*\
+  !*** ./src/modules/updateCheckbox.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _localStorage_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./localStorage.js */ \"./src/modules/localStorage.js\");\n\r\n\r\nconst updateCheckbox = (e) => {\r\n  const id = parseInt(e.target.parentNode.children[1].id, 10);\r\n\r\n  const tasks = (0,_localStorage_js__WEBPACK_IMPORTED_MODULE_0__.getTaskFromLocalStorage)();\r\n  for (let i = 0; i < tasks.length; i += 1) {\r\n    if (tasks[i].index === id) { tasks[i].completed = e.target.checked; }\r\n  }\r\n  (0,_localStorage_js__WEBPACK_IMPORTED_MODULE_0__.setTaskIntoLocalStorage)(tasks);\r\n};\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (updateCheckbox);\n\n//# sourceURL=webpack://to-do-list/./src/modules/updateCheckbox.js?");
+
+/***/ }),
+
+/***/ "./src/modules/updateTask.js":
+/*!***********************************!*\
+  !*** ./src/modules/updateTask.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _localStorage_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./localStorage.js */ \"./src/modules/localStorage.js\");\n\r\n\r\nconst updateTask = (e) => {\r\n  const tasks = (0,_localStorage_js__WEBPACK_IMPORTED_MODULE_0__.getTaskFromLocalStorage)();\r\n  const selectedID = parseInt(e.id, 10);\r\n\r\n  for (let i = 0; i < tasks.length; i += 1) {\r\n    if (tasks[i].index === selectedID) {\r\n      tasks[i].description = e.value;\r\n      break;\r\n    }\r\n  }\r\n  (0,_localStorage_js__WEBPACK_IMPORTED_MODULE_0__.setTaskIntoLocalStorage)(tasks);\r\n};\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (updateTask);\n\n//# sourceURL=webpack://to-do-list/./src/modules/updateTask.js?");
 
 /***/ })
 
