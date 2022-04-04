@@ -1,7 +1,8 @@
 import { getTaskFromLocalStorage, setTaskIntoLocalStorage } from './localStorage.js';
 
-let globalTasks;
+
 const completedTask = () => {
+  let globalTasks;
   globalTasks = getTaskFromLocalStorage();
   const completedTasks = globalTasks.filter((t) => t.completed);
   const splicedIndex = (f) => {

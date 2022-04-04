@@ -3,7 +3,6 @@ import { getTaskFromLocalStorage, setTaskIntoLocalStorage } from './localStorage
 const removeTask = (e) => {
   const tasks = getTaskFromLocalStorage();
   const selectedID = parseInt(e.id, 10);
-
   for (let i = 0; i < tasks.length; i += 1) {
     if (tasks[i].index === selectedID) {
       tasks.splice(i, 1);
