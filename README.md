@@ -16,7 +16,7 @@ To do list is a task mangement webapp, On page load render the dynamically creat
 ![AddBook Page](./images/homePage.png)
 
 ## Live Demo 
-[Live Demo](https://monika-soam.github.io/To-do-list/dist/)
+[Live Demo](https://monika-soam.github.io/To-do-list/)
 
 
 Getting Started
