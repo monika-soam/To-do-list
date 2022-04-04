@@ -8,9 +8,7 @@
     "watch": "webpack --watch",
     "build": "webpack",
     "start": "webpack-dev-server --mode=development"
-
   },
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/monika-soam/To-do-list.git"

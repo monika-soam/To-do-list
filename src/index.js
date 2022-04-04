@@ -1,11 +1,11 @@
 import './style.css';
-import addTask from '../modules/addTask.js';
-import getTasks from '../modules/displayTasks.js';
-import removeTask from '../modules/removeTask.js';
-import updateTask from '../modules/updateTask.js';
-import completedTask from '../modules/completedTasks.js';
-import updateCheckbox from '../modules/updateCheckbox.js';
-import { setTaskIntoLocalStorage } from '../modules/localStorage.js';
+import addTask from './modules/addTask.js';
+import getTasks from './modules/displayTasks.js';
+import removeTask from './modules/removeTask.js';
+import updateTask from './modules/updateTask.js';
+import completedTask from './modules/completedTasks.js';
+import updateCheckbox from './modules/updateCheckbox.js';
+import { setTaskIntoLocalStorage } from './modules/localStorage.js';
 
 const newTask = document.getElementById('add-task');
 const showTasks = document.getElementById('show-tasks');
